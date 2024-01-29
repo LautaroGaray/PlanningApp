@@ -34,14 +34,8 @@ function GroupCard({group}) {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogContent, setDialogContent] = useState('');
+  const navigate = useNavigate();
 
-  const taskParam = {
-    id: 1,
-    name: 'Tarea',
-    agent: 'LG',
-    status: '100',
-    priority: 'HIGH',
-  };
   const toggleContentVisibility = () => {
     setIsContentVisible(!isContentVisible);
   };
@@ -54,8 +48,7 @@ function GroupCard({group}) {
       try{
         let request ={
           idGroup:  group.id
-        }
-        console.log(JSON.stringify(request))
+        }        
         let result = await axios.get(`${API_BASE_URL}${endpointConfig}?idGroup=${group.id}`)
         if(result.status === 200){
           setArrayTasks(result.data.Data);
@@ -98,6 +91,11 @@ function GroupCard({group}) {
     setDialogOpen(false);
   };
 
+  const handleTitleClick =()=>{
+      localStorage.setItem('groupTask', JSON.stringify(group));
+      navigate('/Groups/ManageTasks')
+  }
+
   useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
@@ -123,7 +121,7 @@ function GroupCard({group}) {
         >
           <CardContent>
             <div id="card-content-group">
-              <div id="card-content-title-group">
+              <div id="card-content-title-group" onClick={handleTitleClick}>
                 <Typography
                   variant="h8"
                   style={{ fontWeight: 'bold', color: 'black' }}

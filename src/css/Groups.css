@@ -1,0 +1,9 @@
+#div-content-general{
+    height:fit-content;    
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+    align-items: flex-start;
+}

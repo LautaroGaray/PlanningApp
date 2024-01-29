@@ -1,0 +1,45 @@
+#div-filters-groupTasks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px darkgray;
+}
+
+    #div-filters-groupTasks-title {
+        background-color: transparent; 
+        color: '#21212'; 
+        padding: 10px; 
+        text-align: end; 
+        font-size: 18px; 
+        font-weight: bold; 
+        width: 98.5%; 
+    }
+#div-general-content-groupTask{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: baseline;
+}
+    .div-general-content-groupTask-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+        #div-general-content-groupTask-card-tasks{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+            .taskxButton{
+                display:flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }

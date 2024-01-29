@@ -74,7 +74,8 @@ function Tasks() {
     try{
       let apiService = new ApiService();
       let result =  await axios.get(`${API_BASE_URL}${endpointConfig}`);      
-    //let result = await apiService.GetData(API_BASE_URL,endpointConfig);    
+    //let result = await apiService.GetData(API_BASE_URL,endpointConfig);  
+    
      setArrayTasks(result.data.Data)
 
     }catch(err){
@@ -291,9 +292,8 @@ const handleAllTask = ()=>{
 
 }
   const applyFilters = (tasks) => {
-    console.log('FILTER'+allFIlter)
     return tasks.filter(
-      (task) =>
+      (task) =>      
         task.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
         task.description.toLowerCase().includes(descriptionFilter.toLowerCase()) &&
         (!allFIlter ? (openFilter?task.status<100:task.status>=100):task.status >= 0)

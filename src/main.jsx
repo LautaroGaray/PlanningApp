@@ -9,6 +9,8 @@ import Groups from './Pages/Groups.jsx'
 import CreateGroup from './Pages/Views/CreateGroup.jsx'
 import Tasks from './Pages/Tasks.jsx'
 import CreateTask from './Pages/Views/CreateTask.jsx'
+import GroupXTasks from './Pages/Views/GroupXTasks.jsx';
+
 import './root.css'
 
 const rootElement = document.getElementById('root');
@@ -22,7 +24,8 @@ const Main = () => (
           <Route path="/" element={<App />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Groups" element={<Groups />} />  
-            <Route path="/Groups/CreateGroups" element={<CreateGroup />} />      
+            <Route path="/Groups/CreateGroups" element={<CreateGroup />} />   
+            <Route path="/Groups/ManageTasks" element={<GroupXTasks/>}/>  
           <Route path="/Tasks" element={<Tasks />} />   
             <Route path="/Tasks/CreateTask" element={<CreateTask />} />   
         </Routes>    

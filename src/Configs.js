@@ -11,6 +11,7 @@ const API_ENDPOINTS_TASK =
     {name:'TaskUpdateStatus', endpoint:'Task/UpdateStatus'},
     {name:'TaskUpdatePriority', endpoint:'Task/UpdatePriority'},
     {name:'TaskUpdateDescription', endpoint:'Task/UpdateDescription'},
+    {name:'TaskUpdateGroup', endpoint:'Task/UpdateGroup'},
     {name:'CreateTask', endpoint:'Task/CreateTask'},
     {name:'GetAllTask', endpoint:'Task/GetAll'},
     {name:'GetTaskByGroup', endpoint:'Task/GetByGroup'},

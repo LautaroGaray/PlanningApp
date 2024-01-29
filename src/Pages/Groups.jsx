@@ -22,6 +22,9 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 //Component
 import GroupCard from '../Components/GroupCard.jsx'
 
+//Css
+import '../css/Groups.css'
+
 function Groups(){
     const navigate = useNavigate();
     const [groupsData, setGroupsData] = useState([])
@@ -32,8 +35,7 @@ function Groups(){
     }
     const getAllData = async()=>{
         try{
-            let result = await axios.get(`${API_BASE_URL}${endpointConfig}`);
-            console.log('RESPONSE' + JSON.stringify(result));
+            let result = await axios.get(`${API_BASE_URL}${endpointConfig}`);            
             if(result.status === 200){
                 setGroupsData(result.data.Data);
             }
