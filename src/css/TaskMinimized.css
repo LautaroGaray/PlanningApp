@@ -1,0 +1,47 @@
+#div-general-container-data-taskM{
+    width: 20vw;
+    background-color: rgb(222, 216, 209);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#div-genetal-container-data-taskM{   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color:cornsilk;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px darkgray;
+    margin: 7px;
+
+}
+    #card-content-title-taskM{
+        border-bottom: darkgray;
+        border-bottom-style: inset;
+        border-bottom-width: 0.18rem;
+        cursor: pointer;
+    }
+    #card-content-title-taskM:hover{
+        background-color: rgba(59, 66, 72, 0.21);
+        border-radius: 20px;
+        text-align: center;
+        transition: background-color 0.3s ease, border-radius 0.3s, tex-aling 0.3s ease;
+    }
+#div-general-container-body-taskM{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+
+
+/*MIGRAR A TASK MINIMIZED*/
+#div-general-conainer-title-group{
+    display: flex;
+}

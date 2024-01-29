@@ -1,0 +1,130 @@
+#title-div-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 3%;
+  border-style: groove;
+  border-left: hidden;
+  border-right: hidden;
+  border-top: hidden;
+}
+
+#title-div-card-label-div {
+  margin-left: 6rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#title-div-card-label {
+  font-size: large;
+  font-weight: bold;
+}
+
+#title-div-card-button {
+  margin-right: 4rem;
+}
+
+#table-div-container {
+  margin-top: 4rem;
+}
+
+.MuiTableCell-head {
+  color: white !important;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#div-add-task {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  font-size: 1.4vw;
+  color: gray;
+  cursor: pointer;
+}
+
+#div-add-task:hover {
+  background-color: lightgray;
+}
+
+#filters-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#filters-container .MuiTextField-root {
+  width: 200px;
+}
+
+#filters-container .MuiTextField-root{
+  margin-right: 1rem;
+}
+
+
+#filters-container .MuiInputAdornment-root {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#filters-container .MuiInputAdornment-root:hover {
+  color: #2196F3;
+}
+
+#filters-div-container {
+  background-color: white; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  margin: 0 auto; 
+ 
+   
+}
+
+#filters-title {
+  background-color: transparent; 
+  color: '#21212'; 
+  padding: 10px; 
+  text-align: end; 
+  font-size: 18px; 
+  font-weight: bold; 
+  width: 98.5%; 
+}
+
+/* En tu archivo CSS */
+
+.custom-table-row {
+  background-color: lightgray;
+  height: var(--row-height) !important;
+}
+
+.custom-table-cell {
+  height: var(--row-height) !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.MuiTableCell-root {
+  padding: 2px !important;
+}
+
+#div-add-task{
+  font-size: small;
+}
+
+
+#div-general-container {
+  overflow: hidden;
+  margin: auto;
+  /* margin-right: 0px; */
+  box-shadow: 0 0 10px;
+  text-align: center;
+  /* margin-top: 3rem; */
+  width: 80%;
+  /* margin-left: 10vw; */
+  /* margin: auto; */
+  /* margin-top: 3rem; */
+  border-radius: 10px;
+}

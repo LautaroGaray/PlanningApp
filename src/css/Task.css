@@ -1,0 +1,183 @@
+.title-div-card label{
+  cursor:pointer
+}
+
+#div-general-container-all{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:flex-start;
+  margin-top: 3rem;
+}
+
+#div-general-container{
+  box-shadow: 0 0 10px;
+    text-align: center;    
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 0px;
+}
+
+  #div-general-container-data{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+ 
+  }
+
+    .table-header {
+      background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
+      color: white;
+      font-weight: bold;
+      animation: glow 0.5s ease-in-out infinite;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .table-header:hover {
+      background: linear-gradient(45deg, #1E88E5 30%, #18AEE1 90%);
+      transition: background 0.3s;
+    }
+      .blue-cell{
+        background-color: #6495ED33;
+        border-radius: 10px;
+      }
+      .green-cell{
+        background-color: #00FF0033;
+        border-radius: 10px;
+      }
+
+      .red-cell {
+        background-color: #FF000033; 
+        border-radius: 10px;
+      }
+      .low-priority-cell {
+        background-color: #00FF0033;
+        color:  #FF000033; 
+      }
+      
+      .medium-priority-cell {
+        background-color: #FFFF0033; 
+        color:  #FF000033; 
+      }
+      
+      .urgent-priority-cell {
+        background-color: #FF000033; 
+        color:  #FF000033; 
+      }
+      
+  .card-title{
+    background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
+    color:white
+  }
+
+  .card{
+    box-shadow: 0 0 10px;
+    padding-bottom: 10px;
+  }
+
+.selected-row{
+  background-color: rgba(144, 238, 144, 0.5);
+}
+
+#filters-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+#filters-container .MuiTextField-root {
+  width: 200px;
+}
+
+#filters-container .MuiTextField-root{
+  margin-right: 1rem;
+}
+
+
+#filters-container .MuiInputAdornment-root {
+  cursor: pointer;
+  transition: color 0.3s;
+ 
+}
+
+#filters-container .MuiInputAdornment-root:hover {
+  color: #2196F3;
+}
+
+#filters-div-container {
+  background-color: white; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  margin: 0 auto;    
+}
+
+
+
+#filters-title {
+  background-color: transparent; 
+  color: '#21212'; 
+  padding: 10px; 
+  text-align: end; 
+  font-size: 18px; 
+  font-weight: bold; 
+  width: 98.5%; 
+}
+
+
+#intro-task-div {
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+#intro-task-div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #212121, transparent);
+  opacity: 0.8; /* Ajusta la opacidad según tus preferencias */
+  animation: shimmerEffect 2.5s infinite linear; /* Ajusta la duración y otros valores según tus preferencias */
+}
+
+@keyframes shimmerEffect {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+  #intro-task-title{
+    color: white;
+  }
+  #intro-task-div-red-band {
+    height: 0.3rem;
+    background-image: linear-gradient(to right, red, #800000, #8B0000, #A52A2A, #B22222, #DC143C, #CD5C5C, #8B0000);
+    background-size: 100% 100%;
+    animation: heartbeatAnimation 1s linear infinite;
+}
+
+@keyframes heartbeatAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }40%{
+      transform: scale((1.1));
+    }
+    
+    50% {
+        transform: scale(1.2);
+    }
+}

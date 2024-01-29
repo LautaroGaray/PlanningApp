@@ -1,0 +1,37 @@
+.red-band {
+    height: 0.3rem;
+    background-image: linear-gradient(to right, red, #800000, #8B0000, #A52A2A, #B22222, #DC143C, #CD5C5C, #8B0000);
+    background-size: 100% 100%;
+    animation: heartbeatAnimation 1s linear infinite;
+}
+
+@keyframes heartbeatAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }40%{
+      transform: scale((1.1));
+    }
+    
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.dark-color{
+    background: linear-gradient(90deg, transparent, #212121, transparent);
+}
+
+.box-shadow{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.red-gradient{
+    color: #212121;
+    background: linear-gradient(to right, red, #800000, #8B0000, #A52A2A, #B22222, #DC143C, #CD5C5C, #8B0000);
+}
+
+.red-gradient-xl{
+    color: #212121;
+    background-size: cover;
+    background: linear-gradient(to right,#B22222, #DC143C, #e03c5d, #CD5C5C, #bd7f7f);
+}
