@@ -2,6 +2,7 @@ import React from 'react';
 import FlagIcon from '@mui/icons-material/Flag';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import '../css/TaskMedia.css'
 
 
 const TaskMedia = ({ tasks }) => {  
@@ -38,19 +39,19 @@ const TaskMedia = ({ tasks }) => {
         alignItems: 'center'
   }}></div>
    <ul style={{ listStyle: 'none', padding: 0 , fontWeight:'700', fontSize:'smaller'}}>
-            <li>
+            <li className='media-li-task'>
               <FlagIcon style={{ color: '#2196F3' }} />
               <span>LOW: {priorityStats.LOW}</span>
             </li>
-            <li>
+            <li className='media-li-task'>
               <FlagIcon style={{ color: '#FFEB3B' }} />
               <span>NORMAL: {priorityStats.NORMAL}</span>
             </li>
-            <li>
+            <li className='media-li-task'>
               <FlagIcon style={{ color: '#FF5722' }} />
               <span>HIGH: {priorityStats.HIGH}</span>
             </li>
-            <li>
+            <li className='media-li-task'>
               <FlagIcon style={{ color: '#800000' }} />
               <span>URGENT: {priorityStats.URGENT}</span>
             </li>

@@ -4,15 +4,14 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "dev": "npm-run-all --parallel start-react start-api",
-    "start-api": "cd C:\\Users\\lgaray\\source\\repos\\PlanningAPI\\PlanningAPI && dotnet run",
+    "dev": "vite",    
     "start-react": "vite",
     "build": "vite build",
     "electron": "electron ./src/main.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "react-scripts start",
-    "stop": "npm run stop-api && npm run stop-react",
+    "stop": "npm run stop-react",
     "stop-api": "taskkill /F /FI \"WINDOWTITLE eq PlanningAPI\"",
     "stop-react": "taskkill /F /FI \"WINDOWTITLE eq Vite\""
   },

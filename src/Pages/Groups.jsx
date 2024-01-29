@@ -1,6 +1,8 @@
 import SideBar from '../Components/SideBar.jsx';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL, API_ENDPOINTS_GROUPS } from '/src/Configs.js';
+import axios from 'axios';
 
 //MUI
 import '@mui/material/styles';
@@ -21,6 +23,30 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import GroupCard from '../Components/GroupCard.jsx'
 
 function Groups(){
+    const navigate = useNavigate();
+    const [groupsData, setGroupsData] = useState([])
+    const endpointConfig = API_ENDPOINTS_GROUPS.find((endpoint) => endpoint.name === 'GetAllGroup').endpoint;
+
+    const handleCreateGroup =() =>{
+        navigate('/Groups/CreateGroups')
+    }
+    const getAllData = async()=>{
+        try{
+            let result = await axios.get(`${API_BASE_URL}${endpointConfig}`);
+            console.log('RESPONSE' + JSON.stringify(result));
+            if(result.status === 200){
+                setGroupsData(result.data.Data);
+            }
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    
+    useEffect(() => {
+         getAllData();
+      }, []);
+
     return(
     <>
         <SideBar />
@@ -37,7 +63,7 @@ function Groups(){
             <div className='title-div-card'>
             <div id='title-div-card-label-div'  style={{  borderRadius: '10px'}}>
                 <AddCircleIcon/>
-                <label id='title-div-card-label'>WIHT PROJECT</label>
+                <label id='title-div-card-label'>TASKS</label>
             </div>
             </div>
             <div className='title-div-card'>
@@ -47,7 +73,7 @@ function Groups(){
             </div>
             </div>
             <div className='title-div-card'>
-            <Button variant="contained" color="primary" id='title-div-card-button'>
+            <Button variant="contained" color="primary" id='title-div-card-button' onClick={handleCreateGroup}>
                 CREATE NEW GROUP
             </Button>
             </div>
@@ -61,7 +87,11 @@ function Groups(){
             <div id='intro-task-div-red-band'></div>
         </div>  
         <div id='div-content-general'>
-            <GroupCard/>
+            {Array.isArray(groupsData) && groupsData?( 
+                groupsData.map(group =>  <GroupCard group={group}/>)
+           
+            ):(<span></span>)}
+           
         </div> 
     </>
     )

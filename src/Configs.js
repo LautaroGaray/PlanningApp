@@ -13,8 +13,16 @@ const API_ENDPOINTS_TASK =
     {name:'TaskUpdateDescription', endpoint:'Task/UpdateDescription'},
     {name:'CreateTask', endpoint:'Task/CreateTask'},
     {name:'GetAllTask', endpoint:'Task/GetAll'},
+    {name:'GetTaskByGroup', endpoint:'Task/GetByGroup'},
     {name:'DeleteTask', endpoint:'Task/DeleteTask'},
-    {name:'TaskUpdateDescription', endpoint:'Task/UpdateDescription'}
+    {name:'TaskUpdateDescription', endpoint:'Task/UpdateDescription'},
+   
 ]
 
-  export { API_BASE_URL, API_ENDPOINTS_TASK };
+const API_ENDPOINTS_GROUPS =
+[
+  {name:'CreateGroup', endpoint:'Group/CreateGroup'},
+  {name:'GetAllGroup', endpoint:'Group/GetAll'}
+]
+
+  export { API_BASE_URL, API_ENDPOINTS_TASK , API_ENDPOINTS_GROUPS};

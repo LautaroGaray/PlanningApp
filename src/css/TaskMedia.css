@@ -1,0 +1,10 @@
+.media-li-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-style: ridge;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px darkgray;
+    margin-top: 0.5rem;    
+}

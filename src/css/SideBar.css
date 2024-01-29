@@ -5,3 +5,14 @@
 #drawer{
     background-color: '#212121' !important;
 }
+
+
+.listItemButton:hover {
+    background: linear-gradient(to right, #B22222, #DC143C, #e03c5d, #CD5C5C, #bd7f7f);
+  }
+  
+  .listItemButton:hover .MuiListItemIcon-root,
+  .listItemButton:hover .MuiListItemText-root {
+    color: white;
+  }
+  

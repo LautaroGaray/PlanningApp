@@ -49,8 +49,8 @@ export default function SideBar() {
     <Box
       sx={{
         width: 250,
-        backgroundColor: '#212121', // Fondo del SideBar igual al NavBar
-        color: 'white', // Color del texto y los iconos en blanco
+        backgroundColor: '#212121', 
+        color: 'white', 
         height:'100vw'
       }}
       role="presentation"
@@ -59,7 +59,7 @@ export default function SideBar() {
     >
       <List style={{marginTop:'2rem'}}>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleProjectsSelected}>
+          <ListItemButton onClick={handleProjectsSelected} className='listItemButton'>
             <ListItemIcon>
               <WorkIcon style={{ color: 'white' }}/>
             </ListItemIcon>
@@ -67,7 +67,7 @@ export default function SideBar() {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleGroupsSelected}>
+          <ListItemButton onClick={handleGroupsSelected} className='listItemButton'>
             <ListItemIcon>
               <GroupIcon style={{ color: 'white' }}/>
             </ListItemIcon>
@@ -75,7 +75,7 @@ export default function SideBar() {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleTasksSelected}>
+          <ListItemButton onClick={handleTasksSelected} className='listItemButton'>
             <ListItemIcon>
               <CheckCircleIcon style={{ color: 'white' }}/>
             </ListItemIcon>
@@ -83,7 +83,7 @@ export default function SideBar() {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleMainSelected}>
+          <ListItemButton onClick={handleMainSelected} className='listItemButton'>
             <ListItemIcon>
               <HomeIcon style={{ color: 'white' }}/>
             </ListItemIcon>
@@ -101,18 +101,18 @@ export default function SideBar() {
         style={{
           marginLeft: state.left ? '250px' : '0',
           transition: 'margin-left 0.3s ease-in-out',
-          position: 'absolute',
+          position: 'absolute !important',
           top: '10vw',
           transform: 'translateY(-50%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: state.left ? 'flex-start' : 'center',
           width: '50px',
-          borderRadius: '50%',
+          borderRadius: '100%',
           backgroundColor: 'transparent',
           border: 'none',
           padding: '2px',
-          outline: 'none',
+          outline: 'none',          
         }}
       >
         {state.left ? <ChevronLeftIcon /> : <ChevronLeftIcon fontSize="large" />}

@@ -27,7 +27,8 @@
         cursor: pointer;
     }
     #card-content-title-group:hover{
-        background-color: rgba(59, 66, 72, 0.21);
+        background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
+        color: white;
         border-radius: 20px;
         text-align: center;
         transition: background-color 0.3s ease, border-radius 0.3s, tex-aling 0.3s ease;

@@ -6,6 +6,7 @@ import './index.css';
 import NavBar from './Components/NavBar.jsx'
 import Projects from  './Pages/Projects.jsx'
 import Groups from './Pages/Groups.jsx'
+import CreateGroup from './Pages/Views/CreateGroup.jsx'
 import Tasks from './Pages/Tasks.jsx'
 import CreateTask from './Pages/Views/CreateTask.jsx'
 import './root.css'
@@ -20,7 +21,8 @@ const Main = () => (
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/Projects" element={<Projects />} />
-          <Route path="/Groups" element={<Groups />} />      
+          <Route path="/Groups" element={<Groups />} />  
+            <Route path="/Groups/CreateGroups" element={<CreateGroup />} />      
           <Route path="/Tasks" element={<Tasks />} />   
             <Route path="/Tasks/CreateTask" element={<CreateTask />} />   
         </Routes>    
