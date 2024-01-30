@@ -26,10 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function GroupCard({group, deleteGroup = false}) {
   const endpointConfig = API_ENDPOINTS_TASK.find((endpoint) => endpoint.name === 'GetTaskByGroup').endpoint;
-  const [isContentVisible, setIsContentVisible] = useState(false);
-  const [isMovable, setIsMovable] = useState(false);
-  const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
-  const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 });
+  const [isContentVisible, setIsContentVisible] = useState(false);  
   const [arrayTasks, setArrayTasks] =useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
@@ -39,11 +36,7 @@ function GroupCard({group, deleteGroup = false}) {
   const toggleContentVisibility = () => {
     setIsContentVisible(!isContentVisible);
   };
-
-  const handleMouseDown = (e) => {
-    setIsMovable(true);
-    setInitialPosition({ x: e.clientX, y: e.clientY });
-  };
+ 
   const handleArrayTasks = async()=>{
       try{
         let request ={
@@ -57,23 +50,6 @@ function GroupCard({group, deleteGroup = false}) {
 
       }
   }
-
-  const handleMouseMove = (e) => {
-    if (isMovable) {
-      const deltaX = e.clientX - initialPosition.x;
-      const deltaY = e.clientY - initialPosition.y;
-      setCurrentPosition({ x: deltaX, y: deltaY });
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsMovable(false);
-    setInitialPosition({ x: 0, y: 0 });
-  };
-
-  const handleDoubleClick = () => {
-    setCurrentPosition({ x: 0, y: 0 });
-  };
 
   const handleSuccess = (message) => {
     setDialogTitle('Success');
@@ -96,16 +72,12 @@ function GroupCard({group, deleteGroup = false}) {
       navigate('/Groups/ManageTasks')
   }
 
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+  useEffect(() => {   
     handleArrayTasks();
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+    return () => {    
+      
     };
-  }, [isMovable]);
+  }, );
 
   return (
     <>
@@ -113,11 +85,8 @@ function GroupCard({group, deleteGroup = false}) {
         <Card
           id="div-general-container-data-group"
           style={{
-            position: 'absolute',
-            transform: `translate(${currentPosition.x}px, ${currentPosition.y}px)`,
-          }}
-          onMouseDown={handleMouseDown}
-          onDoubleClick={handleDoubleClick}
+                   
+          }}        
         >
           <CardContent>
             <div id="card-content-group">

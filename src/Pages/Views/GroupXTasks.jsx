@@ -7,11 +7,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import { API_BASE_URL, API_ENDPOINTS_GROUPS, API_ENDPOINTS_TASK } from '/src/Configs.js';
 import axios from 'axios';
@@ -26,7 +21,9 @@ function GroupXTasks() {
     const endpointConfigUpdateTaskGroup =  API_ENDPOINTS_TASK.find((endpoint) => endpoint.name === 'TaskUpdateGroup').endpoint;
     const [groups, setGroups] = useState([]);
     const [tasks, setTasks] = useState([]);
-    const [selectedGroup, setSelectedGroup] = useState('');    
+    const [selectedGroup, setSelectedGroup] = useState('');  
+    const [filteredGroups, setFilteredGroups] = useState([]); 
+     
     const navigate = useNavigate();  
   
     const handleLanding=()=>{
@@ -48,9 +45,14 @@ function GroupXTasks() {
         setSelectedGroup(groupSelected);
     }
 
-    const handleButtonClick = (taskId) => {            
+    const handleSearchChange = (event) => {        
+        const searchText = event.target.value.toLowerCase();
+        const filteredGroups = groups.filter(group => group.name.toLowerCase().includes(searchText));
+        setFilteredGroups(filteredGroups);
+    }
+    const handleButtonClick = async (taskId) => {            
         if(taskId && selectedGroup){
-            handleUpdateGroup(selectedGroup.id, taskId)   
+            await handleUpdateGroup(selectedGroup.id, taskId)   
         }        
        
     };
@@ -59,7 +61,7 @@ function GroupXTasks() {
         if(result.status === 200){
             getAllData();         
             localStorage.setItem('groupTask', JSON.stringify(selectedGroup));
-            window.location.reload();
+            //window.location.reload();
         }
     }
 
@@ -130,7 +132,7 @@ function GroupXTasks() {
                     <Select
                         labelId="dropdown-label"
                         id="dropdown"
-                        value={selectedGroup}
+                        value={selectedGroup}                        
                         onChange={handleGroupChange}
                     >                        
                         {Array.isArray(groups) && groups? (

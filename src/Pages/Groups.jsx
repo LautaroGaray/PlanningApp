@@ -33,10 +33,14 @@ function Groups(){
     const handleCreateGroup =() =>{
         navigate('/Groups/CreateGroups')
     }
+    const handleTaskGroup =()=>{
+        navigate('/Groups/ManageTasks')
+    }
     const getAllData = async()=>{
         try{
             let result = await axios.get(`${API_BASE_URL}${endpointConfig}`);            
             if(result.status === 200){
+                console.log(JSON.stringify(result.data.Data))
                 setGroupsData(result.data.Data);
             }
         }catch(err){
@@ -63,7 +67,7 @@ function Groups(){
             </div>
             </div>
             <div className='title-div-card'>
-            <div id='title-div-card-label-div'  style={{  borderRadius: '10px'}}>
+            <div id='title-div-card-label-div'  style={{  borderRadius: '10px'}} onClick={handleTaskGroup}>
                 <AddCircleIcon/>
                 <label id='title-div-card-label'>TASKS</label>
             </div>
@@ -90,7 +94,11 @@ function Groups(){
         </div>  
         <div id='div-content-general'>
             {Array.isArray(groupsData) && groupsData?( 
-                groupsData.map(group =>  <GroupCard group={group}/>)
+                groupsData.map(group =>                      
+                   <div id='card-group-general'>                    
+                     <GroupCard group={group}/>
+                   </div>
+                )
            
             ):(<span></span>)}
            
