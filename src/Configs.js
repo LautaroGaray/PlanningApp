@@ -27,4 +27,11 @@ const API_ENDPOINTS_GROUPS =
   {name:'DeleteGroup', endpoint:'Group/DeleteGroup'}
 ]
 
-  export { API_BASE_URL, API_ENDPOINTS_TASK , API_ENDPOINTS_GROUPS};
+
+const API_ENDPOINTS_PROJECTS=
+[
+  {name:'GetAllProject', endpoint:'Project/GetAll'},
+  {name:'CreateProject', endpoint:'Project/CreateProject'},
+]
+
+export { API_BASE_URL, API_ENDPOINTS_TASK , API_ENDPOINTS_GROUPS, API_ENDPOINTS_PROJECTS};

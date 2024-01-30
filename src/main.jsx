@@ -7,9 +7,10 @@ import NavBar from './Components/NavBar.jsx'
 import Projects from  './Pages/Projects.jsx'
 import Groups from './Pages/Groups.jsx'
 import CreateGroup from './Pages/Views/CreateGroup.jsx'
+import GroupXTasks from './Pages/Views/GroupXTasks.jsx';
 import Tasks from './Pages/Tasks.jsx'
 import CreateTask from './Pages/Views/CreateTask.jsx'
-import GroupXTasks from './Pages/Views/GroupXTasks.jsx';
+
 
 import './root.css'
 

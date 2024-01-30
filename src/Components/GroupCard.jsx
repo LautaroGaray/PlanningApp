@@ -20,6 +20,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 //Components
 import TaskMinimized from './TaskMinimized';
+import { color } from '@mui/system';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -105,7 +106,7 @@ function GroupCard({group, deleteGroup = false}) {
 
   return (
     <>
-      <div>
+      <div style={{marginTop:'10px'}}>
         <Card
           id="div-general-container-data-group"
           style={{
@@ -136,8 +137,8 @@ function GroupCard({group, deleteGroup = false}) {
                 <IconButton onClick={toggleContentVisibility}>
                   {isContentVisible ? <RemoveIcon /> : <AddIcon />}
                 </IconButton>
-                <IconButton onClick={async()=> handleDeleteGroup()} style={{cursor:'pointer'}}>
-                  <ClearIcon />
+                <IconButton onClick={async()=> handleDeleteGroup()} style={{cursor:'pointer' , color:'red'}}>
+                  <ClearIcon/>
                 </IconButton>
                 
               </div>
