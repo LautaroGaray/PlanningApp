@@ -129,7 +129,9 @@
   width: 98.5%; 
 }
 
-
+#intro-task-div-general{
+  overflow: hidden;
+}
 #intro-task-div {
   background-color: #212121;
   display: flex;

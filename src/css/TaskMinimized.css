@@ -38,7 +38,13 @@
     justify-content: space-around;
     align-items: baseline;
 }
-
+    #delete-group{
+        width: 2rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
 
 /*MIGRAR A TASK MINIMIZED*/

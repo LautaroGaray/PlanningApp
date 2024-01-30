@@ -48,19 +48,17 @@ function GroupXTasks() {
         setSelectedGroup(groupSelected);
     }
 
-    const handleButtonClick = (taskId) => {        
-        console.log('Task ID:', taskId);
+    const handleButtonClick = (taskId) => {            
         if(taskId && selectedGroup){
             handleUpdateGroup(selectedGroup.id, taskId)   
-        }
-        
+        }        
        
     };
     const handleUpdateGroup =async (idgroup, id)=>{
         let result = await axios.put(`${API_BASE_URL}${endpointConfigUpdateTaskGroup}?id=${id}&idGroup=${idgroup}`);  
         if(result.status === 200){
             getAllData();         
-            localStorage.setItem('groupTask', selectedGroup);
+            localStorage.setItem('groupTask', JSON.stringify(selectedGroup));
             window.location.reload();
         }
     }
@@ -158,7 +156,7 @@ function GroupXTasks() {
             <div id='div-general-content-groupTask'>
                 <div className='div-general-content-groupTask-card'>
                             {selectedGroup?(
-                                <GroupCard group={selectedGroup}/>
+                                <GroupCard group={selectedGroup} deleteGroup={true}/>
                             ):(
                                 <span>No data.. </span>
                             )}

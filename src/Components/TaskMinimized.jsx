@@ -9,6 +9,7 @@ import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
+import ClearIcon from '@mui/icons-material/Clear';
 
 import axios from 'axios';
 
@@ -21,7 +22,7 @@ import '../css/GroupCard.css';
 
 import ColorService from '../../dist/Logics/ColorsService.js';
 
-function TaskMinimized({ task , deleteGroup = false}) {
+function TaskMinimized({ task , deleteGroup = false, group = null}) {
   const [badgeColor, setBadgeColor] = useState('');
   const [flagColor, setFlagColor] = useState('');
   const [showDescription, setShowDescription] = useState(false);
@@ -46,12 +47,13 @@ function TaskMinimized({ task , deleteGroup = false}) {
   const hideDescriptionPopup = () => {
     setShowDescription(false);
   };
-const onClickGroupDelete = async()=>{
+const onClickGroupDelete = async(taskId)=>{
   if(deleteGroup){
-      let result = await axios.put(`${API_BASE_URL}${endpointConfigUpdateTaskGroup}?id=${task.id}&idGroup=${idgroup}`);  
-      if(result.status === 200){
-          getAllData();         
-          localStorage.setItem('groupTask', selectedGroup);
+      let result = await axios.put(`${API_BASE_URL}${endpointConfigUpdateTaskGroup}?id=${taskId}&idGroup=${0}`);  
+      if(result.status === 200){    
+        if(group){
+          localStorage.setItem('groupTask',JSON.stringify(group) )  
+        }            
           window.location.reload();
       }
   }
@@ -81,9 +83,18 @@ const onClickGroupDelete = async()=>{
             >
               <span style={{ visibility: 'hidden' }}>{task.status}</span>
             </Badge>
-            <Agents agent={task.agent} />
-            <div>         
-            </div>
+            <Agents agent={task.agent} />    
+            <div id='delete-group'>
+              {deleteGroup?
+                ( <Button onClick={() => onClickGroupDelete(task.id)}>
+                    <ClearIcon />
+                  </Button> 
+                ):(
+                  <span></span>
+                  )}   
+            </div>                 
+            <div>                       
+          </div>
           </div>
         </div>
       </div>

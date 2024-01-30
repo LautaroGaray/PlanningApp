@@ -24,7 +24,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function GroupCard({group}) {
+function GroupCard({group, deleteGroup = false}) {
   const endpointConfig = API_ENDPOINTS_TASK.find((endpoint) => endpoint.name === 'GetTaskByGroup').endpoint;
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isMovable, setIsMovable] = useState(false);
@@ -135,7 +135,7 @@ function GroupCard({group}) {
               >
                 <div>
                   {Array.isArray(arrayTasks) && arrayTasks?(
-                    arrayTasks.map(task => <TaskMinimized task={task} />)
+                    arrayTasks.map(task => <TaskMinimized task={task} deleteGroup={deleteGroup} group={group}/>)
                   ):(<span></span>)}                 
                 </div>
               </div>

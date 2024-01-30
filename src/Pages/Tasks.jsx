@@ -337,7 +337,7 @@ const handleAllTask = ()=>{
         </div>
       </div>
       <div id='filters-div-container'>        
-        <div id="filters-title">Search</div>
+        {/*<div id="filters-title">Search</div>*/}
         <div id="filters-container">
           <TextField
             className='filters-container-input'
