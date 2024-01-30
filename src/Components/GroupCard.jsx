@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_BASE_URL, API_ENDPOINTS_TASK } from '/src/Configs.js';
+import { API_BASE_URL, API_ENDPOINTS_TASK, API_ENDPOINTS_GROUPS } from '/src/Configs.js';
 
 //MUI
 import Card from '@mui/material/Card';
@@ -16,6 +16,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import Slide from '@mui/material/Slide';
+import ClearIcon from '@mui/icons-material/Clear';
 
 //Components
 import TaskMinimized from './TaskMinimized';
@@ -25,12 +26,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function GroupCard({group, deleteGroup = false}) {
+  const endpointConfigDeleteGroups = API_ENDPOINTS_GROUPS.find((endpoint) => endpoint.name === 'DeleteGroup').endpoint; 
   const endpointConfig = API_ENDPOINTS_TASK.find((endpoint) => endpoint.name === 'GetTaskByGroup').endpoint;
   const [isContentVisible, setIsContentVisible] = useState(false);  
   const [arrayTasks, setArrayTasks] =useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
-  const [dialogContent, setDialogContent] = useState('');
+  const [dialogContent, setDialogContent] = useState('');  
   const navigate = useNavigate();
 
   const toggleContentVisibility = () => {
@@ -50,7 +52,29 @@ function GroupCard({group, deleteGroup = false}) {
 
       }
   }
+  const handleDeleteGroup = async () => {    
+    setDialogTitle('Delete group');
+    setDialogContent('Are you sure you want to delete this group?');
+    setDialogOpen(true);
+  };
 
+  const handleConfirmDelete = async () => {
+    try {
+      let result = await axios.delete(
+        `${API_BASE_URL}${endpointConfigDeleteGroups}?idGroup=${group.id}`
+      );     
+      if (result.status !== 200) {
+        handleError('Cannot delete group');
+      } else {
+        handleSuccess('Group deleted');
+        window.location.reload();
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {      
+      setDialogOpen(false);
+    }
+  };
   const handleSuccess = (message) => {
     setDialogTitle('Success');
     setDialogContent(message);
@@ -95,7 +119,7 @@ function GroupCard({group, deleteGroup = false}) {
                   variant="h8"
                   style={{ fontWeight: 'bold', color: 'black' }}
                 >
-                  {group.name?group.name:'No name'}
+                  {group.name?`${group.id} - ${group.name} `:'No name'}
                 </Typography>
               </div>
               <div
@@ -112,6 +136,10 @@ function GroupCard({group, deleteGroup = false}) {
                 <IconButton onClick={toggleContentVisibility}>
                   {isContentVisible ? <RemoveIcon /> : <AddIcon />}
                 </IconButton>
+                <IconButton onClick={async()=> handleDeleteGroup()} style={{cursor:'pointer'}}>
+                  <ClearIcon />
+                </IconButton>
+                
               </div>
             </div>
           </CardContent>
@@ -134,6 +162,26 @@ function GroupCard({group, deleteGroup = false}) {
           </Button>
         </DialogActions>
       </Dialog>
+       {/* Confirmation Dialog */}
+    <Dialog
+      open={dialogOpen}
+      TransitionComponent={Transition}
+      keepMounted
+      onClose={handleCloseDialog}
+    >
+      <DialogTitle>{dialogTitle}</DialogTitle>
+      <DialogContent>
+        <Typography>{dialogContent}</Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCloseDialog} color="primary">
+          Cancel
+        </Button>
+        <Button onClick={handleConfirmDelete} color="primary">
+          Ok
+        </Button>
+      </DialogActions>
+    </Dialog>
     </>
   );
 }

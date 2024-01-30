@@ -23,7 +23,8 @@ const API_ENDPOINTS_TASK =
 const API_ENDPOINTS_GROUPS =
 [
   {name:'CreateGroup', endpoint:'Group/CreateGroup'},
-  {name:'GetAllGroup', endpoint:'Group/GetAll'}
+  {name:'GetAllGroup', endpoint:'Group/GetAll'},
+  {name:'DeleteGroup', endpoint:'Group/DeleteGroup'}
 ]
 
   export { API_BASE_URL, API_ENDPOINTS_TASK , API_ENDPOINTS_GROUPS};
