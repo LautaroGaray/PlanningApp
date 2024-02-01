@@ -10,8 +10,7 @@ import CreateGroup from './Pages/Views/CreateGroup.jsx'
 import GroupXTasks from './Pages/Views/GroupXTasks.jsx';
 import Tasks from './Pages/Tasks.jsx'
 import CreateTask from './Pages/Views/CreateTask.jsx'
-
-
+import Login from './Pages/Login.jsx';
 import './root.css'
 
 const rootElement = document.getElementById('root');
@@ -22,7 +21,9 @@ const Main = () => (
     <div>
       <NavBar/>
         <Routes>
-          <Route path="/" element={<App />} />
+          
+          <Route path="/" element={<Login />} />
+          <Route path="/TaskMain" element={<App />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Groups" element={<Groups />} />  
             <Route path="/Groups/CreateGroups" element={<CreateGroup />} />   
