@@ -33,7 +33,6 @@ import '@mui/material/styles';
 import ApiService from '../../public/Logics/ApiService.js'
 import EditableCell from '../Components/EditableCell.jsx';
 import AgentCard from '../Components/AgentCard.jsx'
-import LocalStorage from '../../Public/Logics/LocalStorage.js';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
@@ -165,8 +164,7 @@ function Tasks() {
    
   }
   const handleAssignmentIconClick = async(taskId) => {      
-   let localStorage = new LocalStorage();
-   return await localStorage.SaveOrClearItem(taskId,taskId);
+   //
   };
   const handlePrioritySelect = async (priority) => {
     setSelectedPriority(priority);
