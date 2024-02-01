@@ -20,7 +20,7 @@ import Agents from './Agents.jsx';
 // CSS
 import '../css/GroupCard.css';
 
-import ColorService from '../../dist/Logics/ColorsService.js';
+import ColorService from '../../public/Logics/ColorsService.js';
 
 function TaskMinimized({ task , deleteGroup = false, group = null}) {
   const [badgeColor, setBadgeColor] = useState('');

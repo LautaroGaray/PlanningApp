@@ -26,12 +26,16 @@
         border-bottom-width: 0.18rem;
         cursor: pointer;
     }
-    #card-content-title-group:hover{
+    #card-content-title-group:hover {
         background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
         color: white;
         border-radius: 20px;
         text-align: center;
         transition: background-color 0.3s ease, border-radius 0.3s, tex-aling 0.3s ease;
+    }
+    #card-content-title-group:hover #title-group{
+        color: white;
+
     }
 #div-general-container-body-group{
     display: flex;
@@ -39,6 +43,11 @@
     justify-content: space-around;
     align-items: baseline;
 }
+    #title-group{
+        font-weight: bold;
+        color: black;
+    }
+       
 
 
 
@@ -56,7 +65,8 @@
         height: 100%;
         transition: background-color 0.3s ease, border-radius 0.3s, tex-aling 0.3s width 0.3s ease;
         margin-left: 0px;
-        border:none
+        border:none;
+        color:'white';
 
 }
 

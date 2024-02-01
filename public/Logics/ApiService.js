@@ -3,16 +3,12 @@ import axios from 'axios';
 class ApiService{
 
   GetData = async (baseUrl, endpoint) => {
-    try {
-        
-        const response = await axios.get(`${baseUrl}${endpoint}`);
-        if (response.status === 200) {
-          return response.data.data;
-        } else {
-          alert('Error en la solicitud: Estado HTTP ' + response.status);
-        }
-      } catch (error) {
-        console.log(error);
+    try {        
+      
+        const response = await axios.get(`${baseUrl}${endpoint}`);       
+        return response.data.Data;
+      } catch (error) {        
+        return {None:"3"}
       }
   };
   PutData = async (baseUrl, endpoint) =>{

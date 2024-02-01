@@ -118,7 +118,8 @@ function GroupCard({group, deleteGroup = false}) {
               <div id="card-content-title-group" onClick={handleTitleClick}>
                 <Typography
                   variant="h8"
-                  style={{ fontWeight: 'bold', color: 'black' }}
+                  id="title-group"
+                  
                 >
                   {group.name?`${group.id} - ${group.name} `:'No name'}
                 </Typography>

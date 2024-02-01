@@ -84,6 +84,10 @@ function Groups(){
             </Button>
             </div>
         </div>
+        <div>
+               <br></br> 
+               <br></br> 
+        </div>
         <div id='intro-task-div-general'>          
             <div id='intro-task-div'>                      
                 <Typography variant="h6" style={{ fontWeight: 'bold', color: 'white' }} id='intro-task-title'>
@@ -92,7 +96,7 @@ function Groups(){
             </div>     
             <div id='intro-task-div-red-band'></div>
         </div>  
-        <div id='div-content-general'>
+        <div id='div-content-general'>            
             {Array.isArray(groupsData) && groupsData?( 
                 groupsData.map(group =>                      
                    <div id='card-group-general'>                    
