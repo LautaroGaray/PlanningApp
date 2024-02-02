@@ -20,8 +20,7 @@ const Main = () => (
   <Router>
     <div>
       <NavBar/>
-        <Routes>
-          
+        <Routes>          
           <Route path="/" element={<Login />} />
           <Route path="/TaskMain" element={<App />} />
           <Route path="/Projects" element={<Projects />} />

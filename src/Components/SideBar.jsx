@@ -95,7 +95,7 @@ export default function SideBar() {
   );
 
   return (
-    <div style={{ position: 'relative' , backgroundColor:'#212121'}}>
+    <div style={{ position: 'relative' , backgroundColor:'white'}} id='sidebar-div'>
       <Button
         onClick={toggleDrawer}
         style={{

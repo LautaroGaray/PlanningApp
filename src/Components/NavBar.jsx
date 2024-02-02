@@ -30,7 +30,7 @@ const NavBar = () => {
             <MenuIcon />
           </IconButton>
           <EventNoteIcon style={{ marginRight: '10px', fontSize: '2rem', color: 'white' }} />
-          <div style={{ flexGrow: 1 }} />
+          <div style={{ flexGrow: 1 }} id='none'/>
           {/*<Typography variant="h6" style={{ fontWeight: 'bold', color: 'white' }}>
             Planning Manager
            </Typography>*/}
