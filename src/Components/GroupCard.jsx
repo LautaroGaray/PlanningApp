@@ -113,7 +113,7 @@ function GroupCard({group, deleteGroup = false}) {
                    
           }}        
         >
-          <CardContent>
+          <CardContent id='general-card-content-group'>
             <div id="card-content-group">
               <div id="card-content-title-group" onClick={handleTitleClick}>
                 <Typography

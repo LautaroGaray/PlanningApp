@@ -39,19 +39,19 @@ const TaskMedia = ({ tasks }) => {
         alignItems: 'center'
   }}></div>
    <ul style={{ listStyle: 'none', padding: 0 , fontWeight:'700', fontSize:'smaller'}}>
-            <li className='media-li-task'>
+            <li className='media-li-task' style={{borderColor:'#2196F3'}}> 
               <FlagIcon style={{ color: '#2196F3' }} />
               <span>LOW: {priorityStats.LOW}</span>
             </li>
-            <li className='media-li-task'>
+            <li className='media-li-task' style={{borderColor:'#FFEB3B'}}>
               <FlagIcon style={{ color: '#FFEB3B' }} />
               <span>NORMAL: {priorityStats.NORMAL}</span>
             </li>
-            <li className='media-li-task'>
+            <li className='media-li-task' style={{borderColor:'#FF5722'}}>
               <FlagIcon style={{ color: '#FF5722' }} />
               <span>HIGH: {priorityStats.HIGH}</span>
             </li>
-            <li className='media-li-task'>
+            <li className='media-li-task' style={{borderColor:'#800000'}}>
               <FlagIcon style={{ color: '#800000' }} />
               <span>URGENT: {priorityStats.URGENT}</span>
             </li>

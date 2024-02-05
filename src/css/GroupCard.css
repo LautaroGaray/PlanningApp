@@ -1,3 +1,7 @@
+#general-card-content-group{
+    background-color:  #e4eaef;
+}
+
 #div-general-container-data-group{
     width: 20vw;
     background-color: rgb(222, 216, 209);
@@ -47,9 +51,6 @@
         font-weight: bold;
         color: black;
     }
-       
-
-
 
 /*MIGRAR A TASK MINIMIZED*/
 #div-general-conainer-title-group{
