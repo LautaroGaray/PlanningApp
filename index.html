@@ -6,29 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planning</title>
   </head>
-  <style>   
-
-    .footer {
-        background-color: #e9d8d8; 
-        padding: 5px;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+  <style> 
+      .spinner-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      position: absolute !important;
+      width: 100vw;
+      backdrop-filter: blur(10px);      
     }
 
-    .footer p {
-        margin: 0;
-        color: black; 
-        font-size: 14px;
-        
+    .spinner {
+      border: 8px solid rgba(0, 0, 0, 0.1);
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;    
     }
-</style>
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+       
+  </style>
   <body>
-    <div id="root"></div>        
-    <!--<div class="footer">
-      <p>&copy; Planning Manager Web</p>
-    </div>-->
+    <div id="loading-spinner" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <div id="root"></div>            
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+        window.onload = function () {
+          setTimeout(function () {
+            document.getElementById("loading-spinner").style.display = "none";
+            document.getElementById("root").style.display = "block";
+          }, 2000);
+        };
+    </script>
   </body>
 </html>
