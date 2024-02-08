@@ -11,7 +11,7 @@ const AgentCard = ({ uniqueAgents }) => {
         <CardContent>
           <h5 className="card-title"
           style={{
-            background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+            background: 'linear-gradient(45deg,#323232 30%, #212121 90%);',
             color: 'white',
             textAlign: 'center',
             width: '100%',

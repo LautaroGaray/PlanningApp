@@ -26,7 +26,7 @@ const TaskMedia = ({ tasks }) => {
   <CardContent>
   <h5 className="card-title"
   style={{
-    background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+   
     color: 'white',
     textAlign: 'center',
     width: '100%',
