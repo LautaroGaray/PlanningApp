@@ -25,8 +25,7 @@ const TaskMedia = ({ tasks }) => {
     
   <CardContent>
   <h5 className="card-title"
-  style={{
-   
+  style={{   
     color: 'white',
     textAlign: 'center',
     width: '100%',
