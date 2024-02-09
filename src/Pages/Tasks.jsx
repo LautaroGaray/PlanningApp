@@ -38,8 +38,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import TaskMedia from '../Components/TaskMedia.jsx';
 import Typography from '@mui/material/Typography';
+import TablePagination from '@mui/material/TablePagination';
+import IconButton from '@mui/material/IconButton';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import '../css/Generals.css'
 import { color, height } from '@mui/system';
+import PaginationAction from '../Components/PaginationAction.jsx';
+
 
 function Tasks() {
   const navigate = useNavigate();
@@ -59,6 +65,11 @@ function Tasks() {
   const [descriptionFilter, setDescriptionFilter] = useState('');
   const [openFilter, setOpenFilter]=useState(false);
   const [allFIlter, setAllFilter] = useState(null);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [prevPageDisabled, setPrevPageDisabled] = useState(true);
+  const [nextPageDisabled, setNextPageDisabled] = useState(false);
+
   
 
   const endpointConfig = API_ENDPOINTS_TASK.find((endpoint) => endpoint.name === 'GetAllTask').endpoint;
@@ -179,6 +190,7 @@ function Tasks() {
     setSelectedTaskIdForPriority(task.id); 
   };
 
+ 
   const handlePriorityClose = () => {
     setAnchorEl(null);
   };
@@ -289,19 +301,23 @@ const handleAllTask = ()=>{
   setAllFilter(true)
 
 }
-  const applyFilters = (tasks) => {
-    return tasks.filter(
-      (task) =>      
-        task.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
-        task.description.toLowerCase().includes(descriptionFilter.toLowerCase()) &&
-        (!allFIlter ? (openFilter?task.status<100:task.status>=100):task.status >= 0)
-    );   
-  };
+const applyFilters = (tasks) => {
+  return tasks.filter(
+    (task) =>      
+      task.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+      task.description.toLowerCase().includes(descriptionFilter.toLowerCase()) &&
+      (!allFIlter ? (openFilter ? task.status < 100 : task.status >= 100) : task.status >= 0)
+  ).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+};
 
-  useEffect(() => {
-    fetchData(endpointConfig);
-    setAllFilter(true);    
-  }, []);
+useEffect(() => {
+  fetchData(endpointConfig);
+  setAllFilter(true);
+  setPrevPageDisabled(page === 0);
+  setNextPageDisabled(page >= Math.ceil(arrayTasks.length / rowsPerPage) - 1);
+}, [page, arrayTasks.length, rowsPerPage]);
+
+  
 
   return (
     <>
@@ -566,6 +582,26 @@ const handleAllTask = ()=>{
           </Button>
         </DialogActions>
       </Dialog>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={applyFilters(arrayTasks).length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={(event, newPage) => setPage(newPage)}
+        onRowsPerPageChange={(event) => {
+          setRowsPerPage(parseInt(event.target.value, 10));
+          setPage(0);
+        }}
+        ActionsComponent={(props) => (
+          <PaginationAction
+            count={props.count}
+            page={props.page}
+            rowsPerPage={props.rowsPerPage}
+            onPageChange={props.onPageChange}
+          />
+        )}
+      />
     
     </>
   );
