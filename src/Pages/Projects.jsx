@@ -7,9 +7,17 @@ import Button from '@mui/material/Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+//Component
+import ProjectMinimized from '../Components/ProjectMinimized.jsx';
 import { API_BASE_URL, API_ENDPOINTS_TASK, API_ENDPOINTS_GROUPS, API_ENDPOINTS_PROJECTS } from '../Configs.js';
 
 function Projects(){
+
+  const projectTest ={
+    idProject:0,
+    projectName:'Name',
+    projectColor:'black'
+  }
     return(
     <>
         <SideBar/>
@@ -36,7 +44,7 @@ function Projects(){
         </div>
       </div>
       <div id='filters-div-container'>        
-        
+        <ProjectMinimized projectName = {'Name'} projectColor={'yellow'} idProject={1}/>
       </div>
         
         
