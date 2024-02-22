@@ -66,7 +66,7 @@ function Tasks() {
   const [openFilter, setOpenFilter]=useState(false);
   const [allFIlter, setAllFilter] = useState(null);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
   const [prevPageDisabled, setPrevPageDisabled] = useState(true);
   const [nextPageDisabled, setNextPageDisabled] = useState(false);
 
