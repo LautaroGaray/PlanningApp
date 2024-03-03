@@ -1,7 +1,7 @@
 //NODE JS LOCAL
-const API_BASE_URL = 'http://localhost:3000/api/v1/';
+//const API_BASE_URL = 'http://localhost:3000/api/v1/';
 //RENDER.COM
-//const API_BASE_URL = 'https://planning-app-backend.onrender.com/api/v1/'
+const API_BASE_URL = 'https://planning-app-backend.onrender.com/api/v1/'
 
 const API_ENDPOINTS_TASK =
 [
