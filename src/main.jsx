@@ -5,6 +5,8 @@ import App from './App.jsx';
 import './index.css';
 import NavBar from './Components/NavBar.jsx'
 import Projects from  './Pages/Projects.jsx'
+import CreateProject from './Pages/Views/CreateProject.jsx';
+import ViewProjectGroups from './Pages/Views/ViewProjectGroups.jsx';
 import Groups from './Pages/Groups.jsx'
 import CreateGroup from './Pages/Views/CreateGroup.jsx'
 import GroupXTasks from './Pages/Views/GroupXTasks.jsx';
@@ -24,6 +26,8 @@ const Main = () => (
           <Route path="/" element={<Login />} />
           <Route path="/TaskMain" element={<App />} />
           <Route path="/Projects" element={<Projects />} />
+            <Route path="/Projects/CreateProject" element={<CreateProject />} />   
+            <Route path="/Projects/ProjectsGroups" element={<ViewProjectGroups />} />  
           <Route path="/Groups" element={<Groups />} />  
             <Route path="/Groups/CreateGroups" element={<CreateGroup />} />   
             <Route path="/Groups/ManageTasks" element={<GroupXTasks/>}/>  

@@ -71,13 +71,7 @@ function Groups(){
                 <AddCircleIcon/>
                 <label id='title-div-card-label'>TASKS</label>
             </div>
-            </div>
-            <div className='title-div-card'>
-            <div id='title-div-card-label-div'   style={{ borderRadius: '10px'}}>
-                <PlaylistAddCheckIcon />
-                <label id='title-div-card-label'  >WHITOUT PROJECT</label>
-            </div>
-            </div>
+            </div>           
             <div className='title-div-card'>
             <Button variant="contained" color="primary" id='title-div-card-button' onClick={handleCreateGroup}>
                 CREATE NEW GROUP

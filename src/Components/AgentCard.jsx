@@ -21,7 +21,8 @@ const AgentCard = ({ uniqueAgents }) => {
           <div style={{
                 display: 'flex',
                 justifyContent: 'space-around',
-                alignItems: 'center'
+                alignItems: 'center',                
+                flexWrap: 'wrap'
           }}>
             {[ ...uniqueAgents].map((agent) => (
               <div key={agent} >
